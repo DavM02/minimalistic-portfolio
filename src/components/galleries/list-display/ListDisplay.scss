@@ -1,0 +1,97 @@
+@import '../../../global.scss';
+
+#list-display {
+
+    margin-top: 17px;
+
+.container * {
+    cursor: none;
+}
+    
+    .list-item {
+        border-bottom: 0.5px solid $white;
+        // grid-template-columns: 2% 6% 12% 6% 10% 10% 17% 6% 1fr;
+        width: 100%;
+
+        a {
+            display: grid;
+            grid-template-columns: 2% 6% 16% 7% 7% 10% 16% 3% 1fr;
+            gap: 10px;
+            padding: 20px 0 17px 0;
+        }
+
+
+
+        .colors-display {
+            display: grid;
+            row-gap: 2px;
+            // grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            grid-template-rows: 15px;
+            align-items: center;
+            justify-items: end;
+        }
+    }
+
+}
+
+.list-cursor {
+    position: fixed;
+    width: 180px;
+    height: 250px;
+    pointer-events: none;
+    will-change:   transform;
+    z-index: 3;
+
+    @include transition3(1.2s, transform);
+    overflow: hidden;
+
+    .cursor-images {
+        display: flex;
+        height: inherit;
+
+        img {
+            position: absolute;
+            @include transition3(0.8s, clip-path);
+            will-change: clip-path;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            object-fit: fill;
+        }
+    }
+}
+
+
+
+@media all and (max-width: '1020px') {
+
+    .list-item {
+        a {
+            grid-template-columns: 25% 1fr !important;
+            h4 {
+                max-width: unset !important;
+            }
+    
+            &>*:nth-child(odd):not(:nth-child(1)) {
+                text-align: end;
+            }
+    
+            h4 {
+                &:nth-child(1) {
+                    grid-column: span 2;
+                }
+            }
+        }
+
+
+    }
+}
+
+// @media all and (min-width: 1020px) and (max-width: 1220px) {
+//     .list-item {
+//         grid-template-columns: 2% 7% 16% 8% 9% 10% 13% 6% 1fr !important;
+//     }
+// }

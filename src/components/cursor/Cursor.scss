@@ -1,0 +1,57 @@
+@import './../../global.scss';
+
+.cursor-outer {
+
+    @include transition3(1.4s, all);
+    border-radius: 50%;
+    border: 2px solid $brown;
+    width: 70px;
+    position: fixed;
+    pointer-events: none;
+    height: 70px;
+    z-index: 106;
+    will-change: transform;
+
+    &.entered {
+        border: 2px solid transparent;
+    }
+
+    &.modal-entered {
+        border: 2px solid transparent;
+    }
+}
+
+
+.cursor-inner {
+    pointer-events: none;
+    @include transition3(0.9s, all);
+    border-radius: 50%;
+    will-change: transform;
+    width: 10px;
+    height: 10px;
+    background-color: $white;
+    position: fixed;
+    z-index: 106;
+
+    &.entered {
+        width: 70px;
+        height: 70px;
+        opacity: 60%;
+    }
+
+    &.modal-entered {
+
+        background-color: $black;
+    }
+
+
+}
+
+.open-prompt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    // transform: translate(-50%, -50%);
+    @include mainHeading( 20px, $black);
+    // will-change: transform;
+}

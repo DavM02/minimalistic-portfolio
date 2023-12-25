@@ -1,38 +1,119 @@
-.App {
-  text-align: center;
-}
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   -webkit-user-drag: none;
+   -webkit-tap-highlight-color: transparent;
+ }
 
-.App-logo {
-  height: 40vmin;
+ li {
+   list-style: none;
+ }
+
+ a {
+   text-decoration: none;
+ }
+
+ img {
+   width: 100%;
+   display: block;
+   filter: brightness(0.8);
+ }
+ 
+
+ .App {
+   background-color: rgb(15, 15, 15);
+   position: fixed;
+   top: 0;
+   left: 0;
+ }
+
+ .App.smoothed {
+   overflow-y: hidden !important;
+ }
+
+
+
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h5 {
+   font-weight: unset;
+ }
+
+ /* .noise-texture {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: url('./assets/additional/noise.webp');
+  mix-blend-mode: hard-light;
+  opacity: 20%;
   pointer-events: none;
-}
+  background-size: 200px 200px;
+  background-repeat: repeat;
+  top: 0;
+  left: 0;
+  background-position: top left;
+  z-index: 555;
+} */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+ html,
+ body,
+ main,
+ .App,
+ #root {
+   height: 100%;
+   /* overflow-x: hidden; */
+   width: 100%;
+ }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+ .App {
+   overflow-x: hidden;
+ }
 
-.App-link {
-  color: #61dafb;
-}
+ main {
+   position: relative;
+   z-index: 3;
+   overflow-x: hidden !important;
+ }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ /* media-queries */
+
+ @media all and (max-width: 320px) {
+   body {
+     width: 320px !important;
+   }
+ }
+
+ /* smooth scroll */
+
+ #scroll-wrapper {
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   top: 63px;
+   width: 100%;
+   padding-bottom: 60px;
+ }
+
+ .scroll-content {
+   min-height: 100% !important;
+   will-change: transform;
+ }
+
+ .scrollbar-thumb-y {
+  background-color: rgb(242, 242, 242) !important;
+ }
+ .scrollbar-track-y {
+background-color:  transparent !important;
+width: 11px !important;
+
+ }
+
+ .scrollbar-track-x {
+display: none !important;
+
 }

@@ -1,0 +1,75 @@
+@import './global.scss';
+
+h1 {
+  @include mainHeading(130px, $brown)
+}
+
+h3 {
+    @include mainHeading(25px, $beige);
+ text-transform: uppercase;
+ text-align: start;
+ line-height: 25px;
+ &::first-letter {
+font-size: 100px;
+text-transform: lowercase;
+
+ }
+ 
+ 
+}
+
+h2 {
+    letter-spacing: 0.5px;
+    @include mainHeading(clamp(1.875rem, 1.5132rem + 1.0526vw, 2.5rem), $white );
+    text-transform: uppercase;
+    max-width: 230px;
+    line-height: clamp(2rem, 1.8191rem + 0.5263vw, 2.3125rem);
+    display: inline-block
+}
+
+h4 {
+    letter-spacing: 0.5px;
+    @include mainHeading(20px, $white );
+    text-transform: uppercase;
+    max-width: 140px;
+    line-height: 20px;
+    display: inline-block
+}
+
+p,
+span {
+    @include text(11px, $white );
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.color-display {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+::selection {
+    background-color: $beige;
+    $color: $white;
+}
+
+section:not(#full-screen-display) {
+padding-bottom: 30px;
+}
+
+.label {
+    margin-top: 30px;
+
+.row {
+    padding-top: 15px;
+    border-top:   0.5px solid $white;
+}
+}
+ 
+.image-loader {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include text(10px, $white)
+}

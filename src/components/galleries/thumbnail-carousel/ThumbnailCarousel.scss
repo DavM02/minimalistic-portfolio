@@ -1,0 +1,135 @@
+@import '../../../global.scss';
+
+#thumbnail-carousel {
+
+margin-top: 80px;
+
+    #current-project {
+        margin-top: 15px;
+
+        .current-project {
+            padding-bottom: 60px;
+            width: 55%;
+            display: grid;
+            gap: 15px 35px;
+            grid-template-columns: 25% 1fr;
+
+
+
+        }
+
+        * {
+            color: $white;
+        }
+
+        .current-image {
+
+            max-width: 300px;
+            user-select: none !important;
+
+
+        }
+    }
+
+
+    .thumbnail-carousel {
+        position: relative;
+        overflow-x: hidden;
+        height: 130px;
+        margin-bottom: 10px;
+        border-bottom: 0.5px solid $white;
+        width: 100%;
+        overflow: hidden;
+
+        & * {
+            user-select: none;
+        }
+
+        ul {
+            flex-direction: row;
+            height: inherit;
+            position: absolute;
+            column-gap: 10px;
+            top: 0;
+            left: 0;
+            align-items: flex-start;
+
+            li {
+                transition: cubic-bezier(0.215, 0.610, 0.355, 1) 1.5s transform,
+                    cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s filter;
+                    
+                position: relative;
+                overflow: hidden;
+                will-change: transform;
+                align-self: stretch;
+
+                &:hover {
+                    img {
+                        transform: scale(1.2);
+                    }
+                }
+
+                .image {
+                    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s scale;;
+                    width: 60px;
+                    overflow: hidden;
+
+                    img {
+                        @include transition2(0.7s, transform);
+                        will-change: transform;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+
+
+@media all and (max-width: '970px') {
+    #current-project {
+
+        .row {
+            overflow: unset !important;
+            align-items: flex-start;
+        }
+    }
+}
+
+@media all and (max-width: '490px') {
+    #current-project {
+
+        .current-project {
+            width: 100% !important;
+        }
+
+        .row {
+            flex-direction: column;
+
+        }
+    }
+}
+
+@media all and (min-width: '490px') and (max-width: "750px") {
+    #current-project {
+        .current-project {
+            display: flex !important;
+            flex-direction: column !important;
+        }
+    }
+}
+
+@media all and (min-width: '490px') and (max-width: '630px') {
+    #current-project {
+
+        .current-project {
+            flex-direction: column;
+            display: flex;
+        }
+
+        .current-image {
+            max-width: 230px !important;
+        }
+    }
+}

@@ -1,0 +1,158 @@
+@import '../../../global.scss';
+
+#full-screen-display {
+    height: 100%;
+    overflow-x: hidden;
+    padding-top: 80px;
+
+    * {
+        user-select: none;
+    }
+
+    @media all and (max-height: 720px) {
+        & {
+            ul {
+                height: initial !important;
+                overflow-x: hidden !important;
+                overflow-y: scroll !important;
+
+                a {
+                    height: 800px !important;
+
+                }
+            }
+
+        }
+    }
+
+    .custom-scrollbar {
+        height: 10px;
+        background-color: transparent;
+        top: -14px;
+        position: relative;
+        z-index: 20;
+
+        .custom-scrollbar-thumb {
+            width: 13%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            will-change: left;
+            background-color: $white;
+            border-radius: 10px;
+            cursor: grab;
+            transition: cubic-bezier(0.215, 0.610, 0.355, 1) 2.5s left,
+                cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s opacity,
+                cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s scale;
+        }
+    }
+
+    ul {
+        flex-direction: row !important;
+        height: inherit;
+        position: absolute;
+        overflow: hidden;
+        column-gap: 10px;
+        top: 0;
+        // width: 100%;
+        left: 0;
+
+        li {
+            position: relative;
+            height: inherit;
+            transition: cubic-bezier(0.215, 0.610, 0.355, 1) 3s left;
+            border-left:   0.5px solid $white;
+            border-right: 0.5px solid $white;;
+            will-change: left;
+
+            @media all and (max-width: '824px') {
+                transition: cubic-bezier(0.215, 0.610, 0.355, 1) 0.8s left;
+
+            }
+
+            h1 {
+                align-self: center;
+            }
+
+            &:hover {
+                .full-screen-image {
+                    opacity: 1;
+                    clip-path: inset(0 0 0 0);
+
+                    img {
+                        scale: 1.1;
+                    }
+                }
+
+                a {
+                    opacity: 0;
+                }
+            }
+
+            a {
+                width: 285px;
+                padding: 10px 25px;
+                height: inherit;
+                display: flex;
+                flex-direction: column;
+
+                @include transition2(0.5s, opacity);
+
+                justify-content: space-between;
+
+                &>div:nth-child(1) {
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 80%;
+                }
+
+                span:not(p span) {
+                    &::first-letter {
+                        @include mainHeading(20px, $beige)
+                    }
+                }
+
+                .colors-display {
+
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 2px
+                }
+            }
+
+            .full-screen-image {
+                @include transition2(1s, clip-path, opacity);
+                opacity: 0;
+                overflow: hidden;
+                clip-path: inset(0 50% 0 50%);
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                height: 100%;
+
+                &::after {
+                    content: '[Open...]';
+                    @include mainHeading(40px, $white);
+                    text-transform: capitalize;
+                    opacity: 60%;
+                    top: 50%;
+                    position: absolute;
+                    left: 50%;
+                    z-index: 4;
+                    transform: translate(-50%, -50%);
+                }
+
+                img {
+                    height: 100%;
+                    @include transition2(1s, scale);
+                    user-select: none;
+                    -webkit-user-drag: none;
+                    object-fit: cover;
+                    scale: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.row-no-justify {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row-evenly {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-evenly;
+}
+
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0  20px;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}

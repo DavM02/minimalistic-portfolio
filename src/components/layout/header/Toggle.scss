@@ -1,0 +1,15 @@
+@import '../../../global.scss';
+
+.toggle {
+ height: 43px;
+    cursor: pointer;
+    @include centered();
+
+    .toggle-line {
+        background-color: $black;
+        width: 43px;
+        height: 1.6px;
+        margin: 3px 0;
+        @include transition1(0.6s, margin, transform)
+    }
+}
