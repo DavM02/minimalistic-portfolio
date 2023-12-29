@@ -65,23 +65,12 @@ function GridGallery() {
 
                         >
                             <div className="grid-content"
+                              style={{ opacity: !loadedStates[i] ? '0' : '1' }}
                                 onClick={(e) => handleClick(e, i)}
                             >
-                                <AnimatePresence>
-                                    {!loadedStates[i] && (
-                                        <motion.div className='image-placeholder'
-                                            initial={{ opacity: 0, }}
-                                            animate={{ opacity: 1, }}
-                                            exit={{ opacity: 0, }}
-                                            transition={{ duration: 0.5, ease: [0.86, 0, 0.07, 1] }}
-                                        >
-                                            {`[Loading...]`}
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
                                 <img src={duplicatedImages[i]}
-                                    style={{ opacity: !loadedStates[i] ? '0' : '1' }}
-                                    loading="lazy" onLoad={() => handleImageLoad(i)}
+                                  loading="lazy"
+                                   onLoad={() => handleImageLoad(i)}
                                 />
                                 <p>{Arr[i % Arr.length].project_name}</p>
                             </div>

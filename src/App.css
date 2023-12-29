@@ -43,7 +43,7 @@
    font-weight: unset;
  }
 
- /* .noise-texture {
+ .noise-texture {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -57,7 +57,7 @@
   left: 0;
   background-position: top left;
   z-index: 555;
-} */
+}
 
  html,
  body,

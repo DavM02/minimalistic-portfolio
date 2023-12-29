@@ -53,9 +53,7 @@ function App() {
             }
             <AnimatePresence mode="wait">
               {
-                (location.key !== 'default' || location.pathname === '/home/0'
-                || location.pathname === '/grid-gallery'
-                ) &&
+                (location.key !== 'default' || location.pathname === '/home/0'  || location.pathname === '/grid-gallery') &&
                 <Header hideScroll={hideScroll}></Header>
               }
             </AnimatePresence>
@@ -70,9 +68,11 @@ function App() {
               ></RoutesComponents>
             </main>
             
-            <div id='modal-root'></div>
+
 
           </div>
+          <div id='modal-root'></div>
+          <div className='noise-texture'></div>
           </>
       }
     </>

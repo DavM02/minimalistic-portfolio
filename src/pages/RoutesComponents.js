@@ -14,30 +14,16 @@ function RoutesComponents(props) {
     return (
         <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
-
-                <Route path="/"
-                    element={
-                        <Suspense fallback={<IsLoading></IsLoading>}>
-                            <ThumbnailCarousel />
-                        </Suspense>
-                    }
-                />
-                 <Route path="/home"
-                    element={
-                        <Suspense fallback={<IsLoading></IsLoading>}>
-                            <ThumbnailCarousel />
-                        </Suspense>
-                    }
-                />
                 <Route
                     path="/home/:index"
-
+                 
                     element={
                         <Suspense fallback={<IsLoading></IsLoading>}>
                             <ThumbnailCarousel />
                         </Suspense>
                     }
                 ></Route>
+                <Route path="/" element={<Navigate to="/home/0" />} />
                 <Route
                     path="/list-display"
                     element={
@@ -57,7 +43,6 @@ function RoutesComponents(props) {
                     element={<Suspense fallback={<IsLoading></IsLoading>}>
                         <GridGallery />
                     </Suspense>}></Route>
-                    
                 <Route path='*' element={<ErrorPage />}></Route>
                 <Route path='/no-found' element={<ErrorPage />}></Route>
             </Routes>

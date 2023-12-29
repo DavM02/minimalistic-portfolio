@@ -41,6 +41,7 @@ function ListDisplay(props) {
                                 onMouseMove={() => setPathIndex(i)}
                                 onMouseEnter={() => setShowCursorImg(true)}
                                 onMouseLeave={() => setShowCursorImg(false)}
+                                onClick={() => setShowCursorImg(false)}
                             >
 
                                 <Link to={`/home/${i}`}>

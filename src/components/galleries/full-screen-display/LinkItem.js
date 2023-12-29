@@ -22,7 +22,7 @@ function LinkItem(props) {
                 // ref={liRefs.current[i]}
                 style={{ left: 
                     props.isDesktop  ? `${(-100 * props.posX) / props.scrollbarWidth}%` : 
-                      `${props.posX}px`   }}
+                      `${props.posX * 3.5}px`   }}
             >
                 <div className='full-screen-image'>
                     <img src={duplicatedImages[i]}

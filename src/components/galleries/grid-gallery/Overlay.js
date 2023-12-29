@@ -3,6 +3,7 @@ import { useState, useContext, useEffect } from "react";
 import { MenuContext } from "../../../provider/MenuProvider";
 import ModalData from "./ModalData";
 import { useNavigate, useLocation } from "react-router-dom";
+
 function Overlay(props) {
 
     const [showImage, setShowImage] = useState(false)
@@ -11,7 +12,7 @@ function Overlay(props) {
     const location = useLocation()
     const currentPathname = location.pathname
     const navigate = useNavigate()
-
+    const [addOpacity, setAddOpacity] = useState(false)
     useEffect(() => {
         const handlePopstate = (e) => {
             if (location.pathname === '/grid-gallery' && location.search.trim().length > 0) {
@@ -28,9 +29,26 @@ function Overlay(props) {
         };
     }, [location.pathname, location.search]);
 
+    useEffect(() => {
+        const handlePopstate = (e) => {
+            if (props.showOverlay) {
+                setAddOpacity(true)
+            }
+        };
+
+        window.addEventListener('popstate', handlePopstate);
+
+        return () => {
+            window.removeEventListener('popstate', handlePopstate);
+            setAddOpacity(false)
+        };
+
+    }, [props.showOverlay])
+
     return <AnimatePresence mode="wait">
         {
             props.showOverlay && <motion.div
+                style={{ opacity: addOpacity ? "0" : '1' }}
                 onMouseEnter={() => changeCursor(null)}
                 onMouseLeave={() => changeCursor(false)}
                 key={'overlay'}

@@ -61,15 +61,11 @@
         li {
             position: relative;
             height: inherit;
-            transition: cubic-bezier(0.215, 0.610, 0.355, 1) 3s left;
+            transition: cubic-bezier(0.215, 0.610, 0.355, 1) 1.5s left;
             border-left:   0.5px solid $white;
             border-right: 0.5px solid $white;;
             will-change: left;
-
-            @media all and (max-width: '824px') {
-                transition: cubic-bezier(0.215, 0.610, 0.355, 1) 0.8s left;
-
-            }
+ 
 
             h1 {
                 align-self: center;
